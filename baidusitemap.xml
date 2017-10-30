@@ -4,15 +4,40 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/21/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</loc>
-    <lastmod>2017-10-30T13:44:20.135Z</lastmod>
+    <loc>http://yoursite.com/2017/04/27/flex%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2017-10-30T14:40:47.519Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2017-06-20T16:28:06.919Z</pubTime>
+        <title>flex布局</title>
+        <pubTime>2017-04-27T05:22:18.000Z</pubTime>
         
+        <tag>html,css</tag>
+         
          
            
+             
+              <breadCrumb title="HTML和CSS" url="http://yoursite.com/categories/HTML%E5%92%8CCSS/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/10/30/4%E7%A7%8D%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/</loc>
+    <lastmod>2017-10-30T14:38:40.584Z</lastmod>
+    <data>
+        <display>
+        <title>4种垂直居中布局</title>
+        <pubTime>2017-10-30T14:31:45.000Z</pubTime>
+        
+        <tag>css</tag>
+         
+         
+           
+             
+              <breadCrumb title="HTML和CSS" url="http://yoursite.com/categories/HTML%E5%92%8CCSS/"/>
+          
         </display>
     </data>
     </url>
@@ -52,26 +77,6 @@
            
              
               <breadCrumb title="实用教程" url="http://yoursite.com/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/04/27/flex%E5%B8%83%E5%B1%80/</loc>
-    <lastmod>2017-05-30T07:11:26.000Z</lastmod>
-    <data>
-        <display>
-        <title>flex布局</title>
-        <pubTime>2017-04-27T05:22:18.000Z</pubTime>
-        
-        <tag>html,css</tag>
-         
-         
-           
-             
-              <breadCrumb title="HTML和CSS" url="http://yoursite.com/categories/HTML%E5%92%8CCSS/"/>
           
         </display>
     </data>

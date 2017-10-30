@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/06/21/%E5%B8%B8%E7%94%A8%E7%9A%84%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD/</loc>
+    <loc>http://yoursite.com/2017/04/27/flex%E5%B8%83%E5%B1%80/</loc>
     
-    <lastmod>2017-10-30T13:44:20.135Z</lastmod>
+    <lastmod>2017-10-30T14:40:47.519Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/30/4%E7%A7%8D%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/</loc>
+    
+    <lastmod>2017-10-30T14:38:40.584Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2016/12/30/hexo-github%E7%AE%80%E8%A6%81%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</loc>
     
     <lastmod>2017-07-02T16:32:58.726Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/04/27/flex%E5%B8%83%E5%B1%80/</loc>
-    
-    <lastmod>2017-05-30T07:11:26.000Z</lastmod>
     
   </url>
   
