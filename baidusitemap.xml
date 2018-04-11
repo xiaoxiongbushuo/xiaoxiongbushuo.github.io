@@ -4,6 +4,46 @@
 
     
   <url>
+    <loc>http://yoursite.com/2018/04/11/RegExp%E5%AF%B9%E8%B1%A1%E5%9F%BA%E7%A1%80/</loc>
+    <lastmod>2018-04-11T15:56:42.889Z</lastmod>
+    <data>
+        <display>
+        <title>RegExp对象基础</title>
+        <pubTime>2018-04-11T15:50:33.000Z</pubTime>
+        
+        <tag>js, html</tag>
+         
+         
+           
+             
+              <breadCrumb title="js" url="http://yoursite.com/categories/js/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/05/30/GitHub%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/</loc>
+    <lastmod>2018-04-11T15:49:08.242Z</lastmod>
+    <data>
+        <display>
+        <title>GitHub从入门到放弃</title>
+        <pubTime>2017-05-30T06:56:35.000Z</pubTime>
+        
+        <tag>博客</tag>
+         
+         
+           
+             
+              <breadCrumb title="实用教程" url="http://yoursite.com/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/10/30/4%E7%A7%8D%E5%9E%82%E7%9B%B4%E5%B1%85%E4%B8%AD%E5%B8%83%E5%B1%80/</loc>
     <lastmod>2017-10-30T14:46:25.693Z</lastmod>
     <data>
@@ -44,52 +84,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/06/15/%E5%A6%82%E6%9E%9C%E4%BD%A0%E6%83%B3%E8%BF%87%E7%99%BE%E5%88%86%E4%B9%8B%E4%B8%80%E7%9A%84%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2017-08-19T12:33:52.030Z</lastmod>
-    <data>
-        <display>
-        <title>如果你想过百分之一的生活</title>
-        <pubTime>2017-06-14T19:26:14.000Z</pubTime>
-        
-        <tag>生活</tag>
-         
-         
-           
-             
-              <breadCrumb title="书籍" url="http://yoursite.com/categories/%E4%B9%A6%E7%B1%8D/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2016/12/30/hexo-github%E7%AE%80%E8%A6%81%E6%90%AD%E5%BB%BA%E6%B5%81%E7%A8%8B/</loc>
     <lastmod>2017-07-02T16:32:58.726Z</lastmod>
     <data>
         <display>
         <title>hexo+github简要搭建流程</title>
         <pubTime>2016-12-30T12:12:08.000Z</pubTime>
-        
-        <tag>博客</tag>
-         
-         
-           
-             
-              <breadCrumb title="实用教程" url="http://yoursite.com/categories/%E5%AE%9E%E7%94%A8%E6%95%99%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/05/30/GitHub%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E6%94%BE%E5%BC%83/</loc>
-    <lastmod>2017-05-30T07:10:08.000Z</lastmod>
-    <data>
-        <display>
-        <title>GitHub从入门到放弃</title>
-        <pubTime>2017-05-30T06:56:35.000Z</pubTime>
         
         <tag>博客</tag>
          

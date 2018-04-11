@@ -92,7 +92,7 @@
 <meta property="og:site_name" content="小熊不说">
 <meta property="og:description" content="本篇文章简单的简介了git的常用语法，如何Pull Request对方仓库，如何把本地代码push到Github上，如何使用GitHub Pages部署自己的个人项目和个人博客，教程没有图片展示，只有文字描述，大家遇到问题尽量去谷歌百度，不要怕遇到英文网站，看不懂还有谷歌翻译。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-05-30T07:10:08.000Z">
+<meta property="og:updated_time" content="2018-04-11T15:49:08.242Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GitHub从入门到放弃">
 <meta name="twitter:description" content="本篇文章简单的简介了git的常用语法，如何Pull Request对方仓库，如何把本地代码push到Github上，如何使用GitHub Pages部署自己的个人项目和个人博客，教程没有图片展示，只有文字描述，大家遇到问题尽量去谷歌百度，不要怕遇到英文网站，看不懂还有谷歌翻译。">
@@ -373,10 +373,15 @@
 </ul>
 <h4 id="分支的操作"><a href="#分支的操作" class="headerlink" title="分支的操作"></a>分支的操作</h4><ul>
 <li>git branch–显示所在分支</li>
+<li>git branch -d fa–删除fa分支</li>
+<li>git branch -D fa–强制删除fa分支</li>
 <li>git checkout -b fa–创建fa分支并切换到它</li>
 <li>git checkout master–切换到master分支</li>
 <li>git merge –no-ff fa–合并fa分支</li>
 <li>git log –graph–以图表形式查看分支</li>
+<li>git tag a.1–创建a.1版本号</li>
+<li>git tag–查看创建过的版本号</li>
+<li>git checkout a.1–切换到a.1版本号</li>
 </ul>
 <h4 id="更改提交的操作"><a href="#更改提交的操作" class="headerlink" title="更改提交的操作"></a>更改提交的操作</h4><ul>
 <li>git reset –hard 嘻哈值–回溯到嘻哈值的历史</li>
@@ -384,17 +389,22 @@
 <li>git commit -am “概述”–这个命令等价于git add和git commit两个操作</li>
 </ul>
 <h4 id="推送至远程仓库"><a href="#推送至远程仓库" class="headerlink" title="推送至远程仓库"></a>推送至远程仓库</h4><ul>
-<li>git remote add origin git@github.com:你的github名字/项目名字（例如：xiaoxiongbushuo/first-pr）.git–git会自动将这个远程仓库的名称设置为origin(标识符)</li>
+<li>git remote add origin git@github.com:你的github名字/项目名字（例如：xiaoxiongbushuo/first-pr）.git–git会自动将这个远程仓库的名称设置为origin(标识符，也可以随便取名字)</li>
+<li>git remote -v–查看远程仓库名字</li>
 <li>git push -u origin master–当前分支本地仓库内容推送给远程仓库master</li>
 <li>git push -u origin fa–将本地分支fa推送到远程仓库，远程仓库多了一个fa</li>
+<li>git config —global user.name “你的名字”–提交代码前要先验证你的名字的邮箱</li>
+<li>git config —global user.email “你的邮箱”</li>
 </ul>
 <h4 id="从远程仓库获取"><a href="#从远程仓库获取" class="headerlink" title="从远程仓库获取"></a>从远程仓库获取</h4><ul>
 <li>git clone git@github.com:你的github名字/项目名字（例如：xiaoxiongbushuo/first-pr）.git –获取远程仓库，要换到其他目录，不要与之前操作的仓库同一目录</li>
-<li>git checkout -b fa origin/fa–将fa分支获取到本地仓库<blockquote>
+<li><p>git checkout -b fa origin/fa–将fa分支获取到本地仓库</p>
+<blockquote>
 <p>-b 参数的后面是本地仓库中新建分支的名称。让它与远程仓库的对应分支保持同名。新建<br>分支名称后面是获取来源的分支名称。</p>
 </blockquote>
 </li>
-<li>git push–把现在所在的本地仓库提交到同名远程仓库</li>
+<li><p>git push–把现在所在的本地仓库提交到同名远程仓库</p>
+</li>
 <li>git pull origin fa–把远程仓库fa的最新状态更新到本地仓库</li>
 </ul>
 <h3 id="Pull-Request"><a href="#Pull-Request" class="headerlink" title="Pull Request"></a>Pull Request</h3><p>Pull Request是自己修改源代码后，请求对方仓库采纳该修改时采取的一种行为。</p>
@@ -500,8 +510,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/06/15/如果你想过百分之一的生活/" rel="prev" title="如果你想过百分之一的生活">
-                如果你想过百分之一的生活 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/30/4种垂直居中布局/" rel="prev" title="4种垂直居中布局">
+                4种垂直居中布局 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -650,7 +660,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
