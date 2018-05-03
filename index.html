@@ -407,7 +407,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/4种垂直居中布局/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/04/03/面对对象编程的模式/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小宝">
@@ -432,7 +432,216 @@
             
               
                 
-                <a class="post-title-link" href="/2017/10/30/4种垂直居中布局/" itemprop="url">
+                <a class="post-title-link" href="/2018/04/03/面对对象编程的模式/" itemprop="url">
+                  面对对象编程的模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-04-03T18:36:43+08:00">
+                2018-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/js/" itemprop="url" rel="index">
+                    <span itemprop="name">js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/04/03/面对对象编程的模式/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/04/03/面对对象编程的模式/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <a id="more"></a>
+<h2 id="封装、继承"><a href="#封装、继承" class="headerlink" title="封装、继承"></a>封装、继承</h2><p>封装是面向对象的重要原则，就是把对象的属性和行为（方法）结合为一个独立的整体，并尽可能隐藏对象的内部实现细节。大白话讲就是，把不想告诉或者不该告诉别人的东西隐藏起来，把可以告诉别人的东西公开，别人只能用我提供的功能实现需求，而不知道内部是如何实现的。正是由于这种特性，所以起到了==增加安全性==的作用。</p>
+<p>使用封装有四大好处：</p>
+<ul>
+<li>良好的封装能够减少耦合。</li>
+<li>类内部的结构可以自由修改。</li>
+<li>可以对成员进行更精确的控制。</li>
+<li>隐藏信息，实现细节。</li>
+</ul>
+<h2 id="构造函数的继承"><a href="#构造函数的继承" class="headerlink" title="构造函数的继承"></a>构造函数的继承</h2><h3 id="构造函数（constructor）模式"><a href="#构造函数（constructor）模式" class="headerlink" title="构造函数（constructor）模式"></a>构造函数（constructor）模式</h3><p>所谓“构造函数”，其实就是普通函数，但是内部使用了this变量，对构造函数使用new运算符，就能生成实例，并且this变量会绑定在实例对象上。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">apple</span>(<span class="params">color, name</span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.color = color;</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> apple1 = <span class="keyword">new</span> apple(<span class="string">"红色"</span>, <span class="string">"红富士"</span>);</div><div class="line"><span class="comment">//这时，apple1会自动含有一个constructor属性，指向它们的构造函数</span></div><div class="line">alear(apple1.constructor == apple); <span class="comment">//ture</span></div><div class="line"><span class="comment">//javascript还提供了一个instanceof运算符，验证原形对象与实例对象之间的关系</span></div><div class="line">alert(apple1 <span class="keyword">instanceof</span> apple); <span class="comment">//true</span></div></pre></td></tr></table></figure>
+<p>构造函数方法很好用，但是存在一个浪费内存的问题。每生成一个实例对象，它固定的属性和方法都是重新生成，多占用一些内存。这样既不环保，也缺乏效率，可以用Prototype模式只生成一次，然后实例都指向那个内存地址</p>
+<h3 id="构造函数绑定"><a href="#构造函数绑定" class="headerlink" title="构造函数绑定"></a>构造函数绑定</h3><p>让一个构造函数继承另一个构造函数，是非常常见的需求。</p>
+<p>这可以分成两步实现。第一步是在子类的构造函数中，调用父类的构造函数。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Sub</span>(<span class="params">value</span>) </span>&#123;</div><div class="line">  Super.call(<span class="keyword">this</span>);</div><div class="line">  <span class="keyword">this</span>.prop = value;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>上面代码中，Sub是子类的构造函数，this是子类的实例。在实例上调用父类的构造函数Super，就会让子类实例具有父类实例的属性。</p>
+<p>第二步，是让子类的原型指向父类的原型，这样子类就可以继承父类原型。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Sub.prototype = <span class="built_in">Object</span>.create(Super.prototype);</div><div class="line">Sub.prototype.constructor = Sub;</div><div class="line">Sub.prototype.method = <span class="string">'...'</span>;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，Sub.prototype是子类的原型，要将它赋值为Object.create(Super.prototype)，而不是直接等于Super.prototype。否则后面两行对Sub.prototype的操作，会连父类的原型Super.prototype一起修改掉。</p>
+<p>另外一种写法是Sub.prototype等于一个父类实例。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Sub.prototype = <span class="keyword">new</span> Super();</div></pre></td></tr></table></figure></p>
+<p>上面这种写法也有继承的效果，但是子类会具有父类实例的方法。有时，这可能不是我们需要的，所以==不推荐==使用这种写法。</p>
+<p>举例来说，下面是一个Shape构造函数。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Shape</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x = <span class="number">0</span>;</div><div class="line">  <span class="keyword">this</span>.y = <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Shape.prototype.move = <span class="function"><span class="keyword">function</span> (<span class="params">x, y</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.x += x;</div><div class="line">  <span class="keyword">this</span>.y += y;</div><div class="line">  <span class="built_in">console</span>.info(<span class="string">'Shape moved.'</span>);</div><div class="line">&#125;;</div></pre></td></tr></table></figure></p>
+<p>我们需要让Rectangle构造函数继承Shape。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 第一步，子类继承父类的实例</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  Shape.call(<span class="keyword">this</span>); <span class="comment">// 调用父类构造函数</span></div><div class="line">&#125;</div><div class="line"><span class="comment">// 另一种写法</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Rectangle</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.base = Shape;</div><div class="line">  <span class="keyword">this</span>.base();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 第二步，子类继承父类的原型</span></div><div class="line">Rectangle.prototype = <span class="built_in">Object</span>.create(Shape.prototype);</div><div class="line">Rectangle.prototype.constructor = Rectangle;</div></pre></td></tr></table></figure></p>
+<p>采用这样的写法以后，instanceof运算符会对子类和父类的构造函数，都返回true。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> rect = <span class="keyword">new</span> Rectangle();</div><div class="line">rect.move(<span class="number">1</span>, <span class="number">1</span>) <span class="comment">// 'Shape moved.'</span></div><div class="line"></div><div class="line">rect <span class="keyword">instanceof</span> Rectangle  <span class="comment">// true</span></div><div class="line">rect <span class="keyword">instanceof</span> Shape  <span class="comment">// true</span></div></pre></td></tr></table></figure></p>
+<p>上面代码中，子类是整体继承父类。有时只需要单个方法的继承，这时可以采用下面的写法。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">ClassB.prototype.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  ClassA.prototype.print.call(<span class="keyword">this</span>);</div><div class="line">  <span class="comment">// some code</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>上面代码中，子类B的print方法先调用父类A的print方法，再部署自己的代码。这就等于继承了父类A的print方法。</p>
+<h3 id="多重继承"><a href="#多重继承" class="headerlink" title="多重继承"></a>多重继承</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">M1</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.hello = <span class="string">'hello'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">M2</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.world = <span class="string">'world'</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">S</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  M1.call(<span class="keyword">this</span>);</div><div class="line">  M2.call(<span class="keyword">this</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 继承 M1</span></div><div class="line">S.prototype = <span class="built_in">Object</span>.create(M1.prototype);</div><div class="line"><span class="comment">// 继承链上加入 M2</span></div><div class="line"><span class="built_in">Object</span>.assign(S.prototype, M2.prototype);</div><div class="line"></div><div class="line"><span class="comment">// 指定构造函数</span></div><div class="line">S.prototype.constructor = S;</div><div class="line"></div><div class="line"><span class="keyword">var</span> s = <span class="keyword">new</span> S();</div><div class="line">s.hello <span class="comment">// 'hello：'</span></div><div class="line">s.world <span class="comment">// 'world'</span></div></pre></td></tr></table></figure>
+<p>上面代码中，子类S同时继承了父类M1和M2。这种模式又称为 Mixin（混入）。</p>
+<h3 id="prototype模式的验证方法"><a href="#prototype模式的验证方法" class="headerlink" title="prototype模式的验证方法"></a>prototype模式的验证方法</h3><ol>
+<li>isPrototypeOf():判断某个prototype对象和某个实例之间的关系<br><code>alert(apple.prototype.isPrototypeOf(apple1)); // true</code></li>
+<li>hasOwnProperty():判断某一个属性是本地属性还是继承自prototype的属性<br><code>alert(apple1.hasOwnProperty(&quot;name&quot;)); // true</code></li>
+</ol>
+<p><code>alert(apple1.hasOwnProperty(&quot;type&quot;)); // false</code></p>
+<ol>
+<li>in 运算符:判断某个实例是否含有某个属性，不管是不是本地属性<br><code>alert(&quot;name&quot; in apple1); //true</code></li>
+</ol>
+<p>in运算符还可以用来遍历某个对象的所有属性<code>for(var xx in appple1){...}</code></p>
+<h2 id="模块"><a href="#模块" class="headerlink" title="模块"></a>模块</h2><h3 id="函数封装"><a href="#函数封装" class="headerlink" title="函数封装"></a>函数封装</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">aa</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>缺点：污染的全局变量，无法保证不与其他模块发生变量名冲突，而且模块成员之间没什么关系。</p>
+<h3 id="对象"><a href="#对象" class="headerlink" title="对象"></a>对象</h3><p><code>var myModule = {}</code></p>
+<p>虽然这样避免了变量污染，只要保证模块名(对象名)唯一即可，同时同一模块也有了关系，但是外部可以随意修改内部成员。</p>
+<h3 id="立即执行函数"><a href="#立即执行函数" class="headerlink" title="立即执行函数"></a>立即执行函数</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1 = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">　<span class="keyword">var</span> _count = <span class="number">0</span>;</div><div class="line">　<span class="keyword">var</span> m1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">　  <span class="comment">//...</span></div><div class="line">　&#125;;</div><div class="line">　<span class="keyword">var</span> m2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">　　<span class="comment">//...</span></div><div class="line">　&#125;;</div><div class="line">　<span class="keyword">return</span> &#123;</div><div class="line">　　<span class="attr">m1</span> : m1,</div><div class="line">　　<span class="attr">m2</span> : m2</div><div class="line">　&#125;;</div><div class="line">&#125;)();</div></pre></td></tr></table></figure>
+<p>这种模块外部无法修改我们没有暴露出来的变量、函数，这也是我们模块化的基础。</p>
+<h3 id="放大模式"><a href="#放大模式" class="headerlink" title="放大模式"></a>放大模式</h3><p>如果一个模块很大，必须分成几个部分，或者一个模块需要继承另一个模块，这时就有必要采用“放大模式”</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1 = (<span class="function"><span class="keyword">function</span> (<span class="params">mod</span>)</span>&#123;</div><div class="line">　　　　mod.m3 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">　　　　　　<span class="comment">//...</span></div><div class="line">　　　　&#125;;</div><div class="line">　　　　<span class="keyword">return</span> mod;</div><div class="line">　　&#125;)(module1);</div></pre></td></tr></table></figure>
+<p>上面的代码为module1模块添加了一个新方法m3()，然后返回新的module1模块。</p>
+<h3 id="宽放大模式"><a href="#宽放大模式" class="headerlink" title="宽放大模式"></a>宽放大模式</h3><p>在浏览器环境中，模块的各个部分通常都是从网上获取的，有时无法知道哪个部分会先加载。如果采用上一节的写法，第一个执行的部分有可能加载一个不存在空对象，这时就要采用”宽放大模式”。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">　　<span class="keyword">var</span> module1 = ( <span class="function"><span class="keyword">function</span> (<span class="params">mod</span>)</span>&#123;</div><div class="line">　　　　<span class="comment">//...</span></div><div class="line">　　　　<span class="keyword">return</span> mod;</div><div class="line">　　&#125;)(<span class="built_in">window</span>.module1 || &#123;&#125;);</div></pre></td></tr></table></figure>
+<p>与”放大模式”相比，＂宽放大模式＂就是”立即执行函数”的参数可以是空对象。</p>
+<h3 id="输入全局变量"><a href="#输入全局变量" class="headerlink" title="输入全局变量"></a>输入全局变量</h3><p>独立性是模块的重要特点，模块内部最好不与程序的其他部分直接交互。</p>
+<p>为了在模块内部调用全局变量，必须显式地将其他变量输入模块。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> module1 = (<span class="function"><span class="keyword">function</span> (<span class="params">$, YAHOO</span>) </span>&#123;</div><div class="line">　<span class="comment">//...</span></div><div class="line">&#125;)(jQuery, YAHOO);</div></pre></td></tr></table></figure>
+<p>上面的module1模块需要使用jQuery库和YUI库，就把这两个库（其实是两个模块）当作参数输入module1。这样做除了保证模块的独立性，还使得模块之间的依赖关系变得明显。</p>
+<p>立即执行函数还可以起到命名空间的作用<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params">$, window, document</span>) </span>&#123;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">go</span>(<span class="params">num</span>) </span>&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">handleEvents</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">initialize</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">dieCarouselDie</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//attach to the global scope</span></div><div class="line">  <span class="built_in">window</span>.finalCarousel = &#123;</div><div class="line">    <span class="attr">init</span> : initialize,</div><div class="line">    <span class="attr">destroy</span> : dieCouraselDie</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;)( jQuery, <span class="built_in">window</span>, <span class="built_in">document</span> );</div></pre></td></tr></table></figure></p>
+<p>上面代码中，finalCarousel对象输出到全局，对外暴露init和destroy接口，内部方法go、handleEvents、initialize、dieCarouselDie都是外部无法调用的。</p>
+<h2 id="非构造函数的继承"><a href="#非构造函数的继承" class="headerlink" title="非构造函数的继承"></a>非构造函数的继承</h2><h3 id="object-方法"><a href="#object-方法" class="headerlink" title="object()方法"></a>object()方法</h3><p>这个object()函数，其实只做一件事，就是把子对象的prototype属性，指向父对象，从而使得子对象与父对象连在一起。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">parent</span>) </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</div><div class="line">    F.prototype = parent;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="浅拷贝"><a href="#浅拷贝" class="headerlink" title="浅拷贝"></a>浅拷贝</h3><p>把父对象的属性，全部拷贝给子对象，也能实现继承。</p>
+<p>但是，这样的拷贝有一个问题。那就是，如果父对象的属性等于数组或另一个对象，那么实际上，子对象获得的只是一个内存地址，而不是真正拷贝，因此存在父对象被篡改的可能。</p>
+<h3 id="深拷贝"><a href="#深拷贝" class="headerlink" title="深拷贝"></a>深拷贝</h3><p>所谓”深拷贝”，就是能够实现真正意义上的数组和对象的拷贝。它的实现并不难，只要递归调用”浅拷贝”就行了。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">deepCopy</span>(<span class="params">p, c</span>) </span>&#123;</div><div class="line">　　　　<span class="keyword">var</span> c = c || &#123;&#125;;</div><div class="line">　　　　<span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> p) &#123;</div><div class="line">　　　　　　<span class="keyword">if</span> (<span class="keyword">typeof</span> p[i] === <span class="string">'object'</span>) &#123;</div><div class="line">　　　　　　　　c[i] = (p[i].constructor === <span class="built_in">Array</span>) ? [] : &#123;&#125;;</div><div class="line">　　　　　　　　deepCopy(p[i], c[i]);</div><div class="line">　　　　　　&#125; <span class="keyword">else</span> &#123;</div><div class="line">　　　　　　　　　c[i] = p[i];</div><div class="line">　　　　　　&#125;</div><div class="line">　　　　&#125;</div><div class="line">　　　　<span class="keyword">return</span> c;</div><div class="line">　　&#125;</div><div class="line">　　<span class="comment">//使用时</span></div><div class="line">　　<span class="keyword">var</span> Doctor = deepCopy(Chinese);</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/30/4种垂直居中布局/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="小宝">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/touxiang.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="小熊不说">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="小熊不说" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/30/4种垂直居中布局/" itemprop="url">
                   4种垂直居中布局
                 </a>
               
@@ -449,8 +658,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-30T22:31:45+08:00">
-                2017-10-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-30T22:31:45+08:00">
+                2018-01-30
               </time>
             
 
@@ -490,8 +699,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/30/4种垂直居中布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/30/4种垂直居中布局/" itemprop="commentCount"></span>
+                <a href="/2018/01/30/4种垂直居中布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/30/4种垂直居中布局/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -521,7 +730,7 @@
           <p>我们经常用到垂直居中，接下来我们介绍一下4种简单的垂直居中方法。<br>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/10/30/4种垂直居中布局/#more" rel="contents">
+            <a class="btn" href="/2018/01/30/4种垂直居中布局/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -562,7 +771,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/05/30/GitHub从入门到放弃/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/27/flex布局/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小宝">
@@ -587,162 +796,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/05/30/GitHub从入门到放弃/" itemprop="url">
-                  GitHub从入门到放弃
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-30T14:56:35+08:00">
-                2017-05-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/实用教程/" itemprop="url" rel="index">
-                    <span itemprop="name">实用教程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/05/30/GitHub从入门到放弃/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/05/30/GitHub从入门到放弃/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>本篇文章简单的简介了git的常用语法，如何Pull Request对方仓库，如何把本地代码push到Github上，如何使用GitHub Pages部署自己的个人项目和个人博客，教程没有图片展示，只有文字描述，大家遇到问题尽量去谷歌百度，不要怕遇到英文网站，看不懂还有谷歌翻译。<br>
-          <!--noindex-->
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/05/30/GitHub从入门到放弃/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/27/flex布局/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="小宝">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/touxiang.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="小熊不说">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="小熊不说" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/27/flex布局/" itemprop="url">
+                <a class="post-title-link" href="/2017/11/27/flex布局/" itemprop="url">
                   flex布局
                 </a>
               
@@ -759,8 +813,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-27T13:22:18+08:00">
-                2017-04-27
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-27T13:22:18+08:00">
+                2017-11-27
               </time>
             
 
@@ -800,8 +854,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/27/flex布局/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/27/flex布局/" itemprop="commentCount"></span>
+                <a href="/2017/11/27/flex布局/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/27/flex布局/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -831,7 +885,7 @@
           <p>flex布局现在很流行，本篇文章简单的给大家介绍一下flex布局的概念和用法。<br>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2017/04/27/flex布局/#more" rel="contents">
+            <a class="btn" href="/2017/11/27/flex布局/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -872,7 +926,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/30/hexo-github简要搭建流程/">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/09/30/GitHub从入门到放弃/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="小宝">
@@ -897,8 +951,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/12/30/hexo-github简要搭建流程/" itemprop="url">
-                  hexo+github简要搭建流程
+                <a class="post-title-link" href="/2017/09/30/GitHub从入门到放弃/" itemprop="url">
+                  GitHub从入门基础
                 </a>
               
             
@@ -914,8 +968,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2016-12-30T20:12:08+08:00">
-                2016-12-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-30T14:56:35+08:00">
+                2017-09-30
               </time>
             
 
@@ -955,8 +1009,163 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2016/12/30/hexo-github简要搭建流程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/12/30/hexo-github简要搭建流程/" itemprop="commentCount"></span>
+                <a href="/2017/09/30/GitHub从入门到放弃/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/30/GitHub从入门到放弃/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本篇文章简单的简介了git的常用语法，如何Pull Request对方仓库，如何把本地代码push到Github上，如何使用GitHub Pages部署自己的个人项目和个人博客，教程没有图片展示，只有文字描述，大家遇到问题尽量去谷歌百度，不要怕遇到英文网站，看不懂还有谷歌翻译。<br>
+          <!--noindex-->
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/09/30/GitHub从入门到放弃/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/10/hexo-github简要搭建流程/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="小宝">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/touxiang.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="小熊不说">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="小熊不说" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/08/10/hexo-github简要搭建流程/" itemprop="url">
+                  hexo+github简要搭建流程
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-10T20:12:08+08:00">
+                2017-08-10
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/实用教程/" itemprop="url" rel="index">
+                    <span itemprop="name">实用教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/10/hexo-github简要搭建流程/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/10/hexo-github简要搭建流程/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -986,7 +1195,7 @@
           <p>本教材简单的教一下如何用hexo+github搭建博客，过程有点简单，中间可能会出现各种各样的问题，我把自己遇到的问题以及解决方法都有写出来，当然只是我自己遇到过的，对于文中不明白或理解的地方大家可以自行去谷歌百度，网上有非常多的教程。<br>
           <!--noindex-->
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/12/30/hexo-github简要搭建流程/#more" rel="contents">
+            <a class="btn" href="/2017/08/10/hexo-github简要搭建流程/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1061,7 +1270,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1079,7 +1288,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
